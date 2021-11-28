@@ -3,12 +3,6 @@
   {{ $author = (index site.Data site.Language.Lang).author }}
 {{ end }}
 
-{{/* default author image */}}
-{{ $authorImage:= "/images/default-avatar.png" }}
-{{ if $author.image }}
-  {{ $authorImage = $author.image }}
-{{ end }}
-
 {{/* if author image is provided in author's data, then use that */}}
 {{ if eq (printf "%T" .Params.author ) "maps.Params" }}
     {{ with .Params.author }}

@@ -62,7 +62,8 @@
     <div class="container pt-5">
       <div class="row text-left">
         {{ if $navigationEnabled }}
-        <div class="col-md-4 col-sm-12">
+        {{ partial "sections/experiences/vertical-line.html" }}
+        <div class="col-md-6 col-sm-12">
           <h5>{{ i18n "navigation" }}</h5>
           {{ if $sections }}
           <ul>
@@ -86,7 +87,7 @@
           <h5>{{ i18n "contact_me" }}</h5>
           <ul>
             {{ range $key,$value:= $author.contactInfo }}
-            <li><span>{{ title $key }}: </span> <span>{{ $value }}</span></li>
+            <li><span>{{ title $key }}: </span> <a href="mailo:{{ $value }}">{{ $value }}</a></li>
             {{ end }}
           </ul>
         </div>
@@ -145,20 +146,9 @@
     <div class="container">
       <div class="row text-left">
         <div class="col-md-4">
-          <a id="theme" href="https://github.com/hossainemruz/toha" target="_blank" rel="noopener">
-            <img src="{{ $themeLogo }}" alt="Toha Theme Logo">
-            Toha
-          </a>
         </div>
         <div class="col-md-4 text-center">{{ $copyrightNotice | markdownify }}</div>
         <div class="col-md-4 text-right">
-          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">{{ i18n "hugoAttributionText" }}
-          <img
-            src="{{ $hugoLogo }}"
-            alt="Hugo Logo"
-            height="18"
-          />
-          </a>
         </div>
       </div>
     </div>

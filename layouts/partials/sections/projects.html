@@ -3,24 +3,21 @@
   {{ $sectionID = .section.id }}
 {{ end }}
 
-<div class="container-fluid anchor pb-5 projects-section" id="{{ $sectionID }}">
+<div class="container-fluid anchor pb-5 experiences-section">
   {{ if not (.section.hideTitle) }}
-    <h1 class="text-center">{{ .section.name }}</h1>
+    <h1 class="text-center">
+      <span id="{{ $sectionID }}"></span>{{ .section.name }}
+    </h1>
   {{ end }}
-  <div class="container ml-auto text-center">
-    <div class="btn-group flex-wrap" role="group" id="project-filter-buttons">
-      {{ range .buttons }}
-      <button type="button" class="btn btn-dark" data-filter="{{ .filter }}">
-        {{ .name }}
-      </button>
-      {{ end }}
+
+  <div class="container timeline text-justify">
+    {{ range .projects }}
+    <div class="row align-items-center  d-flex">
+      {{ partial "sections/experiences/vertical-line.html" }}
+      {{ partial "cards/project" . }}
+      
     </div>
-  </div>
-  <div class="container filtr-projects">
-    <div class="row" id="project-card-holder">
-      {{ range .projects }}
-        {{ partial "cards/project" . }}
-      {{ end }}
-    </div>
+    {{ partial "sections/experiences/horizontal-line.html" }}
+    {{ end }}
   </div>
 </div>

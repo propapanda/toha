@@ -8,11 +8,13 @@
   {{ $author = (index site.Data site.Language.Lang).author }}
 {{ end }}
 
-<div class="container anchor p-lg-5 about-section" id="{{ $sectionID }}">
+<div class="container anchor about-section" id="{{ $sectionID }}">
   <div class="row pt-sm-2 pt-md-4 align-self-center">
     <!-- summary -->
     <!-- takes up full section width if no badges/soft skills are specified -->
-    {{ if or (.softSkills) (.badges) }} <div class="col-sm-6"> {{ else }} <div class="col-sm-12"> {{ end }}
+    <div class="col-1 col-lg-2 text-center d-inline-flex justify-content-center"></div>
+
+    {{ if or (.softSkills) (.badges) }} <div class="col-6"> {{ else }} <div class="col-10 col-lg-8"> {{ end }}
       <h3 class="p-1">{{ $author.name }}</h3>
       {{ if .designation }}
       <h5 class="p-1">
